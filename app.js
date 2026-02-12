@@ -21,6 +21,27 @@ function addPet() {
   document.getElementById("pets").appendChild(div);
 }
 
+// ===== Mostrar / esconder Pets =====
+function togglePets(show) {
+  const area = document.getElementById("areaPets");
+  area.classList.toggle("hidden", !show);
+
+  if (show && document.querySelectorAll(".pet-item").length === 0) {
+    addPet();
+  }
+}
+
+// ===== Mostrar / esconder Carros =====
+function toggleCarros(show) {
+  const area = document.getElementById("areaCarros");
+  area.classList.toggle("hidden", !show);
+
+  if (show && document.querySelectorAll(".carro-item").length === 0) {
+    addCarro();
+  }
+}
+
+
 // ===== Adicionar Carro =====
 function addCarro() {
   const div = document.createElement("div");
