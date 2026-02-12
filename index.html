@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cadastro Morador</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h2>Cadastro de Morador</h2>
+
+  <form onsubmit="cadastrar(event)">
+    <input id="nome" placeholder="Nome" required>
+    <input id="apartamento" placeholder="Apartamento" required>
+    <input id="bloco" placeholder="Bloco" required>
+
+    <h3>Pets</h3>
+    <div id="pets"></div>
+    <button type="button" onclick="addPet()">Adicionar Pet</button>
+
+    <h3>Carros</h3>
+    <div id="carros"></div>
+    <button type="button" onclick="addCarro()">Adicionar Carro</button>
+
+    <button type="submit">Cadastrar</button>
+  </form>
+
+  <script src="app.js"></script>
+</body>
+</html>
