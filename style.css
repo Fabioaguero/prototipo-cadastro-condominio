@@ -63,3 +63,32 @@ button {
 .hidden {
   display: none;
 }
+
+.choice {
+  display: flex;
+  gap: 10px;
+  margin: 8px 0;
+}
+
+.choice button {
+  flex: 1;
+  background: #e4e7ec;
+  color: #333;
+  font-weight: 600;
+}
+
+.choice button.active-yes {
+  background: linear-gradient(135deg, #28a745, #218838);
+  color: white;
+}
+
+.choice button.active-no {
+  background: linear-gradient(135deg, #dc3545, #c82333);
+  color: white;
+}
+
+.feedback {
+  margin-top: 8px;
+  font-weight: 600;
+  color: #555;
+}

@@ -24,22 +24,50 @@ function addPet() {
 // ===== Mostrar / esconder Pets =====
 function togglePets(show) {
   const area = document.getElementById("areaPets");
-  area.classList.toggle("hidden", !show);
+  const feedback = document.getElementById("petFeedback");
 
-  if (show && document.querySelectorAll(".pet-item").length === 0) {
-    addPet();
+  document.getElementById("petSim").classList.remove("active-yes");
+  document.getElementById("petNao").classList.remove("active-no");
+
+  if (show) {
+    area.classList.remove("hidden");
+    feedback.classList.add("hidden");
+    petSim.classList.add("active-yes");
+
+    if (document.querySelectorAll(".pet-item").length === 0) {
+      addPet();
+    }
+  } else {
+    area.classList.add("hidden");
+    feedback.classList.remove("hidden");
+    petNao.classList.add("active-no");
   }
 }
 
 // ===== Mostrar / esconder Carros =====
+
 function toggleCarros(show) {
   const area = document.getElementById("areaCarros");
-  area.classList.toggle("hidden", !show);
+  const feedback = document.getElementById("carroFeedback");
 
-  if (show && document.querySelectorAll(".carro-item").length === 0) {
-    addCarro();
+  document.getElementById("carroSim").classList.remove("active-yes");
+  document.getElementById("carroNao").classList.remove("active-no");
+
+  if (show) {
+    area.classList.remove("hidden");
+    feedback.classList.add("hidden");
+    carroSim.classList.add("active-yes");
+
+    if (document.querySelectorAll(".carro-item").length === 0) {
+      addCarro();
+    }
+  } else {
+    area.classList.add("hidden");
+    feedback.classList.remove("hidden");
+    carroNao.classList.add("active-no");
   }
 }
+
 
 
 // ===== Adicionar Carro =====
@@ -112,6 +140,50 @@ function carregarTabela() {
   moradores.forEach(m => {
     const pets = m.pets.map(p => `${p.tipo} (${p.raca}) x${p.quantidade}`).join(", ");
     const carros = m.carros.map(c => `${c.marca} ${c.modelo} - ${c.placa}`).join(", ");
+
+    tabela.innerHTML += `
+      <tr>
+        <td>${m.nome}</td>
+        <td>${m.apartamento}</td>
+        <td>${m.bloco}</td>
+        <td>${pets}</td>
+        <td>${carros}</td>
+      </tr>
+    `;
+  });
+}
+
+// ===== Login fake =====
+function login(e) {
+  e.preventDefault();
+
+  if (email.value === "admin" && senha.value === "123") {
+    localStorage.setItem("logado", "sim");
+    window.location = "admin.html";
+  } else {
+    alert("Login inválido");
+  }
+}
+
+// ===== Logout =====
+function logout() {
+  localStorage.removeItem("logado");
+  window.location = "login.html";
+}
+
+// ===== Proteção da página admin =====
+function carregarTabela() {
+  if (localStorage.getItem("logado") !== "sim") {
+    window.location = "login.html";
+    return;
+  }
+
+  const tabela = document.getElementById("tabela");
+  const moradores = getMoradores();
+
+  moradores.forEach(m => {
+    const pets = m.pets.map(p => `${p.tipo} (${p.raca}) x${p.quantidade}`).join(", ") || "Não possui";
+    const carros = m.carros.map(c => `${c.marca} ${c.modelo} - ${c.placa}`).join(", ") || "Não possui";
 
     tabela.innerHTML += `
       <tr>

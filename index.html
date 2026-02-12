@@ -9,6 +9,11 @@
 
         <h2>Cadastro de Morador</h2>
 
+        <div style="text-align:right; margin-bottom:10px;">
+  <a href="login.html">🔐 Área do Administrador</a>
+</div>
+
+
 <form onsubmit="cadastrar(event)">
 
   <input id="nome" placeholder="Nome" required>
@@ -16,22 +21,38 @@
   <input id="bloco" placeholder="Bloco" required>
 
   <h3>Possui Pet?</h3>
-  <button type="button" class="btn-add" onclick="togglePets(true)">Sim</button>
-  <button type="button" class="btn-add" onclick="togglePets(false)">Não</button>
 
-  <div id="areaPets" class="hidden">
-    <div id="pets"></div>
-    <button type="button" class="btn-add" onclick="addPet()">Adicionar outro Pet</button>
-  </div>
+<div class="choice">
+  <button type="button" id="petSim" onclick="togglePets(true)">Sim</button>
+  <button type="button" id="petNao" onclick="togglePets(false)">Não</button>
+</div>
 
-  <h3>Possui Carro?</h3>
-  <button type="button" class="btn-add" onclick="toggleCarros(true)">Sim</button>
-  <button type="button" class="btn-add" onclick="toggleCarros(false)">Não</button>
+<div id="petFeedback" class="feedback hidden">
+  ✅ Morador não possui pets
+</div>
 
-  <div id="areaCarros" class="hidden">
-    <div id="carros"></div>
-    <button type="button" class="btn-add" onclick="addCarro()">Adicionar outro Carro</button>
-  </div>
+<div id="areaPets" class="hidden">
+  <div id="pets"></div>
+  <button type="button" class="btn-add" onclick="addPet()">Adicionar outro Pet</button>
+</div>
+
+
+<h3>Possui Carro?</h3>
+
+<div class="choice">
+  <button type="button" id="carroSim" onclick="toggleCarros(true)">Sim</button>
+  <button type="button" id="carroNao" onclick="toggleCarros(false)">Não</button>
+</div>
+
+<div id="carroFeedback" class="feedback hidden">
+  ✅ Morador não possui carros
+</div>
+
+<div id="areaCarros" class="hidden">
+  <div id="carros"></div>
+  <button type="button" class="btn-add" onclick="addCarro()">Adicionar outro Carro</button>
+</div>
+
 
   <button type="submit" class="btn-success">Cadastrar Morador</button>
 

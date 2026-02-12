@@ -5,14 +5,18 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-     <div class="container"></div>
-  <h2>Login Admin (protótipo)</h2>
+  <div class="container">
+    <h2>Login do Administrador</h2>
 
-  <form onsubmit="login(event)">
-    <input id="email" placeholder="Login">
-    <input id="senha" type="password" placeholder="Senha">
-    <button>Entrar</button>
-  </form>
+    <form onsubmit="login(event)">
+      <input id="email" placeholder="Login" required>
+      <input id="senha" type="password" placeholder="Senha" required>
+      <button class="btn-success">Entrar</button>
+    </form>
+
+    <div style="text-align:center; margin-top:15px;">
+      <a href="index.html">⬅ Voltar ao Cadastro</a>
+    </div>
   </div>
 
   <script src="app.js"></script>

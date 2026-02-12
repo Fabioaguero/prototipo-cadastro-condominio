@@ -5,21 +5,30 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body onload="carregarTabela()">
-     <div class="container"></div>
-  <h2>Painel do Administrador</h2>
 
-  <table>
-    <thead>
-      <tr>
-        <th>Nome</th>
-        <th>Apto</th>
-        <th>Bloco</th>
-        <th>Pets</th>
-        <th>Carros</th>
-      </tr>
-    </thead>
-    <tbody id="tabela"></tbody>
-  </table>
+  <div class="container">
+    <h2>Painel do Administrador</h2>
+
+    <button onclick="logout()" style="background:#dc3545;color:white;">
+      Sair
+    </button>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Apto</th>
+          <th>Bloco</th>
+          <th>Pets</th>
+          <th>Carros</th>
+        </tr>
+      </thead>
+      <tbody id="tabela"></tbody>
+    </table>
+
+    <div style="text-align:center; margin-top:15px;">
+      <a href="index.html">⬅ Voltar ao Cadastro</a>
+    </div>
   </div>
 
   <script src="app.js"></script>
